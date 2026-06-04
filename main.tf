@@ -47,3 +47,19 @@ resource "pingone_application" "saml_app" {
     }
   }
 }
+resource "pingone_user" "john_doe" {
+  environment_id = var.environment_id
+
+  population_id = pingone_population.employees.id
+
+  username = "john.doe"
+
+  name = {
+    given = "John"
+    family = "Doe"
+  }
+
+  email = "john.doe@example.com"
+
+  enabled = true
+}
