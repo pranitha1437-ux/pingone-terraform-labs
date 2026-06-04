@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     pingone = {
-      source  = "pingidentity/pingone"
+      source = "pingidentity/pingone"
     }
   }
 }
@@ -12,15 +12,13 @@ provider "pingone" {
   environment_id = var.environment_id
   region_code    = "SG"
 }
-variable "client_id" {}
-variable "client_secret" {}
-variable "environment_id" {}
 
 resource "pingone_population" "employees" {
   environment_id = var.environment_id
   name           = "Terraform Employees"
   description    = "Created using Terraform"
 }
+
 resource "pingone_key" "saml_signing_key" {
   environment_id      = var.environment_id
   name                = "Terraform SAML Key"
